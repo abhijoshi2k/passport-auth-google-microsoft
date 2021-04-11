@@ -1,0 +1,32 @@
+{
+  "name": "passport-auth-google-microsoft",
+  "version": "1.0.0",
+  "description": "Login with Google and Microsoft using Passport.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhijoshi2k/passport-auth-google-microsoft.git"
+  },
+  "author": "Abhishek Joshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhijoshi2k/passport-auth-google-microsoft/issues"
+  },
+  "homepage": "https://github.com/abhijoshi2k/passport-auth-google-microsoft#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.12.3",
+    "mongoose-findorcreate": "^3.0.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local-mongoose": "^6.1.0"
+  }
+}
