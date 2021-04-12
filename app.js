@@ -21,8 +21,7 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+passport(app);
 
 app.listen(3000, () => {
 	console.log('Listening to port 3000');

@@ -2,16 +2,19 @@ const passport = require('passport');
 
 User = require('../schema/userSchema');
 
-passport.use(User.createStrategy());
+module.exports = (app) => {
+	app.use(passport.initialize());
+	app.use(passport.session());
 
-passport.serializeUser(function (user, done) {
-	done(null, user.id);
-});
+	passport.use(User.createStrategy());
 
-passport.deserializeUser(function (id, done) {
-	User.findById(id, function (err, user) {
-		done(err, user);
+	passport.serializeUser(function (user, done) {
+		done(null, user.id);
 	});
-});
 
-module.exports = passport;
+	passport.deserializeUser(function (id, done) {
+		User.findById(id, function (err, user) {
+			done(err, user);
+		});
+	});
+};
