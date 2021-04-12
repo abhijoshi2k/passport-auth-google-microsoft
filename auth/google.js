@@ -11,12 +11,25 @@ module.exports = () => {
 				callbackURL: '/auth/google/callback'
 			},
 			function (accessToken, refreshToken, profile, cb) {
-				User.findOrCreate(
-					{ googleId: profile.id },
-					function (err, user) {
+				User.findOne({ googleId: profile.id }, (err, user) => {
+					if (err) {
+						console.log(err);
 						return cb(err, user);
+					} else if (user) {
+						return cb(null, user);
+					} else {
+						const newUser = new User();
+						newUser.email = profile._json.email;
+						newUser.googleId = profile.id;
+						newUser.save((err) => {
+							if (err) {
+								return cb(err, newUser);
+							} else {
+								return cb(null, newUser);
+							}
+						});
 					}
-				);
+				});
 			}
 		)
 	);
