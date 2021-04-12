@@ -21,6 +21,8 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('view engine', 'ejs');
+
 passport(app);
 
 app.listen(3000, () => {

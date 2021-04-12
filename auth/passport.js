@@ -1,6 +1,7 @@
 const passport = require('passport');
 
-User = require('../schema/userSchema');
+const User = require('../schema/userSchema');
+const GoogleStrategy = require('./google');
 
 module.exports = (app) => {
 	app.use(passport.initialize());
@@ -17,4 +18,6 @@ module.exports = (app) => {
 			done(err, user);
 		});
 	});
+
+	GoogleStrategy();
 };
