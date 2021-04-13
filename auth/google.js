@@ -21,9 +21,9 @@ module.exports = () => {
 						const newUser = new User();
 						newUser.email = profile._json.email;
 						newUser.googleId = profile.id;
-						newUser.save((err) => {
-							if (err) {
-								return cb(err, newUser);
+						newUser.save((error) => {
+							if (error) {
+								return cb(error, null);
 							} else {
 								return cb(null, newUser);
 							}
