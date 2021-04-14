@@ -1,7 +1,9 @@
 const passport = require('passport');
 
 const User = require('../schema/userSchema');
+
 const GoogleStrategy = require('./google');
+const OIDCStrategy = require('./microsoft');
 
 module.exports = (app) => {
 	app.use(passport.initialize());
@@ -20,4 +22,5 @@ module.exports = (app) => {
 	});
 
 	GoogleStrategy();
+	OIDCStrategy();
 };
