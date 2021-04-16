@@ -43,6 +43,7 @@ module.exports = () => {
 							newUser.save((error) => {
 								if (error) {
 									console.log(error);
+									return done(error);
 								} else {
 									return done(null, newUser);
 								}
